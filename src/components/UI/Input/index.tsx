@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styles from './styles.module.css';
+import React, { useState } from 'react';
+// import styles from './styles.module.css';
 
 export interface InputProps {
   onChange?: (value: string) => void;
@@ -26,6 +26,7 @@ const Input = ({
   onChange,
   autofocus = false,
   startValue = '',
+  inputClasses = '',
   formStyle,
 }: InputProps) => {
   const [value, setValue] = useState<string>(startValue);
@@ -55,7 +56,7 @@ const Input = ({
       <input
         value={value}
         onChange={evt => handleChange(evt.target.value)}
-        className={styles.input}
+        className={inputClasses}
         placeholder={placeholder}
         autoFocus={autofocus}
       />

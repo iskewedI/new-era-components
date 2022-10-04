@@ -1,20 +1,5 @@
-import NewEraComponents from './types';
+import EditableText from './components/UX/EditableText';
+import './modules';
+import './index.css';
 
-// UI
-import Input from './components/UI/Input';
-
-// UX
-import EditableText from './components/UX/EditableText/';
-
-export { Input, EditableText };
-
-const components: NewEraComponents = {
-  UX: {
-    EditableText,
-  },
-  UI: {
-    Input,
-  },
-};
-
-export default components;
+export { EditableText };

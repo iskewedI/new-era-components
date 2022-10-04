@@ -1,59 +1,50 @@
 {
   "name": "new-era-components",
-  "version": "1.1.0",
-  "author": "Joaquin Tornello",
-  "license": "ISC",
-  "keywords": [
-    "react",
-    "components",
-    "ui",
-    "ux",
-    "typescript"
+  "version": "1.1.1",
+  "description": "New era components that carries the UX to the max level!",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.21",
+    "react-dom": ">=18.2.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "prepare": "npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iskewedI/new-era-components.git"
   },
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.64",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+  "keywords": [
+    "components",
+    "ux",
+    "ui",
+    "react",
+    "typescript"
+  ],
+  "author": "Tornello Joaquín (iskewedi)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iskewedI/new-era-components/issues"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && mv build dist && cp package.json README.md dist",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "clean": "rm -rf build && rm -rf dist",
-    "publish": "npm publish ./dist"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "types": "src/index.ts",
-  "main": "src/index.ts"
+  "homepage": "https://github.com/iskewedI/new-era-components#readme"
 }

@@ -30,9 +30,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build dist && cp package.json README.md dist",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rm -rf build && rm -rf dist"
   },
   "eslintConfig": {
     "extends": [
@@ -51,5 +52,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "types": "src/index.ts",
+  "main": "src/index.ts"
 }

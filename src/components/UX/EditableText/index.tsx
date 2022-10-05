@@ -7,7 +7,7 @@ interface EditableTextProps {
   onChange?: (newValue: string) => void;
   onSubmit?: (newValue: string) => void;
   onEditStart?: () => void;
-  containerStyles?: string;
+  containerClasses?: string;
   enabled?: boolean;
   controlled?: boolean;
 }
@@ -15,7 +15,7 @@ interface EditableTextProps {
 const EditableText = ({
   editing = false,
   text = '',
-  containerStyles = '',
+  containerClasses = '',
   enabled = true,
   controlled = false,
   onChange,
@@ -75,7 +75,7 @@ const EditableText = ({
   }, [controlled, editing, isEditing, text, textValue]);
 
   return (
-    <div className={containerStyles} onDoubleClick={handleDoubleClick}>
+    <div className={containerClasses} onDoubleClick={handleDoubleClick}>
       {!isEditing && textValue}
       {isEditing && (
         <Input

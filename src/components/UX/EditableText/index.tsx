@@ -83,7 +83,7 @@ const EditableText = ({
           onChange={handleChange}
           onSubmit={handleSubmit}
           autofocus={true}
-          formStyle={text ? { width: `${text.length}ch` } : undefined}
+          inputStyle={text ? { width: `${text.length}ch` } : undefined}
         />
       )}
     </div>

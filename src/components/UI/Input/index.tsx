@@ -8,7 +8,7 @@ export interface InputProps {
   autofocus?: boolean;
   inputClasses?: string;
   startValue?: string;
-  formStyle?: React.CSSProperties;
+  inputStyle?: React.CSSProperties;
 }
 
 /**
@@ -18,7 +18,7 @@ export interface InputProps {
  * @param {(value: string) => void} onChange - Callback function to be called in the onChange event.
  * @param {boolean} [autofocus=false] - Defines if the input should be autofocused when mounted in the UI.
  * @param {string} startValue - Default value of the input.
- * @param {CSSProperties} formStyle - Object with Javascript styles to be applied to the form.
+ * @param {CSSProperties} inputStyle - Object with Javascript styles to be applied to the input.
  */
 const Input = ({
   placeholder = '',
@@ -27,7 +27,7 @@ const Input = ({
   autofocus = false,
   startValue = '',
   inputClasses = '',
-  formStyle,
+  inputStyle,
 }: InputProps) => {
   const [value, setValue] = useState<string>(startValue);
 
@@ -52,8 +52,9 @@ const Input = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
+    <form onSubmit={handleSubmit}>
       <input
+        style={inputStyle}
         value={value}
         onChange={evt => handleChange(evt.target.value)}
         className={inputClasses}

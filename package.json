@@ -1,6 +1,6 @@
 {
   "name": "new-era-components",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "New era components that carries the UX to the max level!",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

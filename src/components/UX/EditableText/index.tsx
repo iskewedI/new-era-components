@@ -40,6 +40,12 @@ const EditableText = ({
     setIsEditing(false);
   };
 
+  const handleCancel = () => {
+    if (!controlled) {
+      setIsEditing(false);
+    }
+  };
+
   /***
    * Used in the container.
    * Handles the double click event.
@@ -84,6 +90,7 @@ const EditableText = ({
           onSubmit={handleSubmit}
           autofocus={true}
           inputStyle={text ? { width: `${text.length}ch` } : undefined}
+          onCancel={handleCancel}
         />
       )}
     </div>

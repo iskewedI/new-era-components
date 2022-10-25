@@ -1,33 +1,37 @@
-import React, { useState } from 'react';
+import React, { Key, useState } from 'react';
 // import styles from './styles.module.css';
 
 export interface InputProps {
-  onChange?: (value: string) => void;
   placeholder?: string;
-  onSubmit?: (text: string) => void;
   autofocus?: boolean;
   inputClasses?: string;
   startValue?: string;
   inputStyle?: React.CSSProperties;
+  onChange?: (value: string) => void;
+  onSubmit?: (text: string) => void;
+  onCancel?: () => void;
 }
 
 /**
  * Renders a Form with Input component, to handle the onChange and onSubmit event properly.
  * @param {string} placeholder - Text for the input placeholder.
- * @param {(text: string) => void} onSubmit - Callback function to be called in the onSubmit event.
- * @param {(value: string) => void} onChange - Callback function to be called in the onChange event.
  * @param {boolean} [autofocus=false] - Defines if the input should be autofocused when mounted in the UI.
  * @param {string} startValue - Default value of the input.
  * @param {CSSProperties} inputStyle - Object with Javascript styles to be applied to the input.
+ * @param {CSSProperties} inputStyle - Object with Javascript styles to be applied to the input.
+ * @param {(value: string) => void} onChange - Callback function to be called in the onChange event.
+ * @param {(text: string) => void} onSubmit - Callback function to be called in the onSubmit event.
+ * @param {() => void} onCancel - Callback function to be called in the blur event (when lossing focus) or pressing cancel buttons.
  */
 const Input = ({
   placeholder = '',
-  onSubmit,
-  onChange,
   autofocus = false,
   startValue = '',
   inputClasses = '',
   inputStyle,
+  onSubmit,
+  onChange,
+  onCancel,
 }: InputProps) => {
   const [value, setValue] = useState<string>(startValue);
 
@@ -51,6 +55,12 @@ const Input = ({
     }
   };
 
+  const handleKeyDown = (evt: React.KeyboardEvent<HTMLInputElement>) => {
+    if (evt.key === 'Escape') {
+      onCancel && typeof onCancel === 'function' && onCancel();
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -60,6 +70,8 @@ const Input = ({
         className={inputClasses}
         placeholder={placeholder}
         autoFocus={autofocus}
+        onBlur={onCancel}
+        onKeyDown={handleKeyDown}
       />
     </form>
   );
